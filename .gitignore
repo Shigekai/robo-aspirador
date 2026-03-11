@@ -1,0 +1,13 @@
+# IDE
+.idea/
+
+# Build
+cmake-build-*/
+build/
+
+# Binários
+*.exe
+*.out
+*.o
+test_build
+
