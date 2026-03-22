@@ -137,7 +137,7 @@ void cleanEnviroment(cleaner* C, enviroment E){
             abs(target->row - C->whereCharger->row) +
             abs(target->col - C->whereCharger->col);
 
-        if(C->battery < dist + distCharger + 1){
+        if(C->battery <= dist + distCharger + 1){
             if(2 * distCharger + 1 > MAX_BATTERY){
                 printf("Bateria insuficiente para completar a tarefa!\n");
                 break;

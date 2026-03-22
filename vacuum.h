@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#define MAX_BATTERY 45
+#define MAX_BATTERY 2*E.h + 2*E.w - 2
 
 #ifndef VACUUM_H
 #define VACUUM_H

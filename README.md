@@ -6,13 +6,22 @@ Simulação de um agente inteligente de limpeza em C.
 
 **CLion:** Basta abrir a pasta do projeto e clicar em **Run**.
 
-**Terminal** (pré-requisitos: CMake >= 3.20 e GCC/Clang):
+**Terminal com Make** (pré-requisito: GCC):
+
+```bash
+make
+./robo_aspirador        # Linux/macOS
+.\robo_aspirador.exe    # Windows
+```
+
+**Terminal com CMake** (pré-requisitos: CMake >= 3.20 e GCC/Clang):
 
 ```bash
 mkdir build && cd build
 cmake ..
 cmake --build .
-./robo_aspirador
+./robo_aspirador        # Linux/macOS
+.\robo_aspirador.exe    # Windows
 ```
 
 O programa pedirá as dimensões do ambiente e a quantidade de sujeiras.
@@ -25,4 +34,3 @@ O programa pedirá as dimensões do ambiente e a quantidade de sujeiras.
 | `C`     | Carregador  |
 | `x`     | Sujeira     |
 | `-`     | Lugar limpo |
-
