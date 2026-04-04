@@ -8,7 +8,9 @@
 int main(void) {
     seedRandom();
     ObjectiveFunction = rastrigin;
-
+    //Impressão no terminal do estado final
+    //E valor de objetivo para cada função.
+    //Feito 5 runs para cada algoritmo
     printf("=== Global Optimization (2D Rastrigin) ===\n");
     printf("Global minimum: f(0, 0) = 0\n\n");
 

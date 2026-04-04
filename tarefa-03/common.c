@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+//Arquivo para métodos comuns para anneling e beam
 double (*ObjectiveFunction)(double x, double y) = 0;
 
 void seedRandom(void) {
