@@ -34,3 +34,7 @@ O programa pedirá as dimensões do ambiente e a quantidade de sujeiras.
 | `C`     | Carregador  |
 | `x`     | Sujeira     |
 | `-`     | Lugar limpo |
+
+## Outras tarefas
+
+- [Tarefa 03](tarefa-03/) — Simulated Annealing e Stochastic Local Beam para a função Rastrigin 2D
