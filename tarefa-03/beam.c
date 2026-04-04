@@ -3,9 +3,14 @@
 
 #include <stdlib.h>
 
+//5 feixes ativos por iteracao.
 static const int BEAM_WIDTH = 5;
+//Cada feixe gera 5 vizinhos por ciclo.
 static const int NEIGHBORS_PER_STATE = 5;
 static const int ITERATIONS = 1500;
+//Pool filtrado para manter os melhores candidatos.
+//10 de 25 (5 feixes x 5 vizinhos): reduz escolhas muito distantes,
+//mas preserva exploração estocástica com "caos controlado".
 static const int TOP_CANDIDATES = 10;
 static const double ETA = 0.50;
 static const double EPSILON = 1e-9;
@@ -38,6 +43,7 @@ static Point stochasticPick(WeightedCandidate candidates[], int count) {
     double totalWeight = 0.0;
     for (int i = 0; i < count; i++) {
         if (!candidates[i].active) continue;
+        //Peso inverso do valor objetivo: menor f(x,y), maior chance.
         totalWeight += 1.0 / (candidates[i].point.value + EPSILON);
     }
 
@@ -76,6 +82,7 @@ Point stochasticLocalBeamSearch(void) {
     Point beams[BEAM_WIDTH];
     Point pool[BEAM_WIDTH * NEIGHBORS_PER_STATE];
 
+    //Estados iniciais aleatorios dentro do dominio.
     for (int i = 0; i < BEAM_WIDTH; i++) {
         beams[i] = randomPoint(SEARCH_DOMAIN_MIN, SEARCH_DOMAIN_MAX);
     }
@@ -101,6 +108,8 @@ Point stochasticLocalBeamSearch(void) {
             candidateCount = maxPool;
         }
 
+        //Escolha estocastica entre os 10 melhores do pool (de 25 no total).
+        //A ideia e limitar aleatoriedade extrema sem perder exploração.
         WeightedCandidate candidates[TOP_CANDIDATES];
         for (int i = 0; i < candidateCount; i++) {
             candidates[i].point = pool[i];
@@ -117,4 +126,3 @@ Point stochasticLocalBeamSearch(void) {
 
     return best;
 }
-
