@@ -1,5 +1,7 @@
 # IDE
 .idea/
+referencias
+referencias/*
 
 # Build
 cmake-build-*/
@@ -10,4 +12,6 @@ build/
 *.out
 *.o
 test_build
-
+robo_aspirador
+tarefa-03/main
+tarefa-04/main
