@@ -101,11 +101,3 @@ imediatamente antes da chamada do algoritmo, dentro do laço mais interno.
 Logo, qualquer tupla `(algoritmo, metodo, funcao, hiperparams, n, seed)`
 é reprodutível bit-a-bit em re-execuções no mesmo compilador.
 
-## Documentação adicional
-
-- [`docs/varredura-hiperparametros.md`](docs/varredura-hiperparametros.md):
-  resultados da varredura, critério de escolha (média de `f_final` →
-  desvio padrão se gap `< 5%` → ordem natural da tupla) e justificativa
-  por algoritmo × função.
-- [`SPEC-trabalho-01.md`](SPEC-trabalho-01.md): especificação completa
-  do trabalho (Stage 1 PSO+PP, Stage 2 CPSO, Stage 3 sweep + coleta).
