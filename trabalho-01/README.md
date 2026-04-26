@@ -54,6 +54,18 @@ make sweep
 make clean
 ```
 
+**Sem Make** (compilação direta):
+
+```bash
+cd trabalho-01
+
+cc -Wall -std=c11 main.c  common.c pso.c predator_prey.c charged_particle.c objectiveFunction.c -o main  -lm
+cc -Wall -std=c11 sweep.c common.c pso.c predator_prey.c charged_particle.c objectiveFunction.c -o sweep -lm
+
+./main
+./sweep
+```
+
 `./main` escreve em `data/resultados_brutos.csv` (uma linha por execução)
 e `data/resultados_agregados.csv` (uma linha por configuração com média
 e desvio padrão sobre as 10 sementes). `./sweep` escreve em
