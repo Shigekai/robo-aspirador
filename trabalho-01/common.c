@@ -10,6 +10,12 @@ void seedRandom(void) {
     srand((unsigned int)time(NULL));
 }
 
+//Semente fixa: usada pelos scripts de varredura e protocolo final
+//para garantir reprodutibilidade por (algoritmo, hiperparametros, seed).
+void seedRandomWith(unsigned int seed) {
+    srand(seed);
+}
+
 double randomInRange(double min, double max) {
     return min + (max - min) * ((double)rand() / (double)RAND_MAX);
 }

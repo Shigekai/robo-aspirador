@@ -99,6 +99,17 @@ Point chargedParticle(CpVariant variant, ConfigPSO cfg) {
                 }
             }
 
+            //Salvaguarda numerica: limita a norma do vetor de repulsao
+            //para evitar passos patológicos quando Q grande encontra dNuc
+            //pequeno. Default 0.0 desativa; caller seta valor positivo.
+            if (cfg.repMax > 0.0) {
+                double repNorm = sqrt(repX * repX + repY * repY);
+                if (repNorm > cfg.repMax) {
+                    repX = cfg.repMax * repX / repNorm;
+                    repY = cfg.repMax * repY / repNorm;
+                }
+            }
+
             //Atualização da posição com (componente PSO + repulsão), clampada ao domínio.
             swarm[i].x = clampToDomain(swarm[i].x + vpsoX + repX, cfg.domainMin, cfg.domainMax);
             swarm[i].y = clampToDomain(swarm[i].y + vpsoY + repY, cfg.domainMin, cfg.domainMax);

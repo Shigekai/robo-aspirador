@@ -1,11 +1,13 @@
 CC = cc
 CFLAGS = -Wall -std=c11
 LDFLAGS = -lm
-SRC = main.c common.c pso.c predator_prey.c charged_particle.c objectiveFunction.c
-TARGET = main
+LIB_SRC = common.c pso.c predator_prey.c charged_particle.c objectiveFunction.c
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
+main: main.c $(LIB_SRC)
+	$(CC) $(CFLAGS) main.c $(LIB_SRC) -o main $(LDFLAGS)
+
+sweep: sweep.c $(LIB_SRC)
+	$(CC) $(CFLAGS) sweep.c $(LIB_SRC) -o sweep $(LDFLAGS)
 
 clean:
-	rm -f $(TARGET)
+	rm -f main sweep

@@ -32,6 +32,8 @@ typedef struct {
     double Q;               //Carga uniforme das partículas (charged particle)
     double dNuc;            //Raio nuclear
     double dRep;            //Raio de repulsão
+    double repMax;          //Salvaguarda numerica: limite na norma do vetor
+                            //de repulsao do CPSO. 0.0 desativa o limite.
     double domainMin;       //Limite inferior do dominio de busca
     double domainMax;       //Limite superior do dominio de busca
 } ConfigPSO;

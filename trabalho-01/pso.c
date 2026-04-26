@@ -25,6 +25,7 @@ ConfigPSO configDefault(void) {
         .Q               = 0.1,
         .dNuc            = 0.1,
         .dRep            = 0.0,
+        .repMax          = 0.0,
         .domainMin       = 0.0,
         .domainMax       = 0.0
     };

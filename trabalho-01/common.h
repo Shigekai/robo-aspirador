@@ -10,6 +10,7 @@ typedef struct {
 extern double (*ObjectiveFunction)(double x, double y);
 
 void seedRandom(void);
+void seedRandomWith(unsigned int seed);
 double randomInRange(double min, double max);
 double clampToDomain(double value, double min, double max);
 double evaluateObjective(double x, double y);

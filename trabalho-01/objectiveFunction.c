@@ -1,4 +1,8 @@
 #include <math.h>
+//Garantimos a constante para portar entre toolchains.
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 //Funcao de Rastrigin 2D: minimo global em (0, 0) com f = 0.
 double rastrigin(double x, double y) {
