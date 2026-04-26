@@ -22,6 +22,9 @@ ConfigPSO configDefault(void) {
         .alpha           = 4.0,
         .fleeAmplitude   = 3.0,
         .fleeLambda      = 1.0,
+        .Q               = 0.1,
+        .dNuc            = 0.1,
+        .dRep            = 0.0,
         .domainMin       = 0.0,
         .domainMax       = 0.0
     };

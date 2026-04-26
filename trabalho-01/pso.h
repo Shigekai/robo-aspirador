@@ -17,9 +17,9 @@ typedef struct {
     double bv;      //Valor de f(pbest)
 } Particle;
 
-//Configuracao unificada para PSO e predador-presa.
-//Campos alpha, fleeAmplitude e fleeLambda sao usados
-//apenas pelo modelo predador-presa.
+//Configuração unificada para PSO, predador-presa e charged particle.
+//Campos alpha, fleeAmplitude e fleeLambda são usados apenas pelo modelo
+//predador-presa. Campos Q, dNuc e dRep são usados apenas pelo charged particle.
 typedef struct {
     int    particles;       //Numero de particulas no enxame
     int    tMax;            //Numero maximo de iteracoes
@@ -29,6 +29,9 @@ typedef struct {
     double alpha;           //Velocidade de perseguicao do predador
     double fleeAmplitude;   //Amplitude de fuga da presa (A)
     double fleeLambda;      //Decaimento exponencial da fuga (lambda)
+    double Q;               //Carga uniforme das partículas (charged particle)
+    double dNuc;            //Raio nuclear
+    double dRep;            //Raio de repulsão
     double domainMin;       //Limite inferior do dominio de busca
     double domainMax;       //Limite superior do dominio de busca
 } ConfigPSO;

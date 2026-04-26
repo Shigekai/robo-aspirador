@@ -4,6 +4,7 @@
 #include "objectiveFunction.h"
 #include "pso.h"
 #include "predator_prey.h"
+#include "charged_particle.h"
 
 //Agrupa funcao de custo com seu dominio e ponto otimo conhecido.
 typedef struct {
@@ -30,6 +31,7 @@ int main(void) {
         ObjectiveFunction = functions[f].func;
         cfg.domainMin     = functions[f].domainMin;
         cfg.domainMax     = functions[f].domainMax;
+        cfg.dRep          = 0.25 * (cfg.domainMax - cfg.domainMin);
 
         printf("=== %s ===\n", functions[f].name);
         printf("Minimo global: f(%.1f, %.1f) = 0\n\n", functions[f].optX, functions[f].optY);
@@ -47,6 +49,12 @@ int main(void) {
 
         r = predatorPrey(PP_INERTIA, cfg);
         printf("[Pred-Prey Inertia] x=%.6f, y=%.6f, f=%.6f\n", r.x, r.y, r.value);
+
+        r = chargedParticle(CP_VMAX, cfg);
+        printf("[CP vMax]           x=%.6f, y=%.6f, f=%.6f\n", r.x, r.y, r.value);
+
+        r = chargedParticle(CP_INERTIA, cfg);
+        printf("[CP Inertia]        x=%.6f, y=%.6f, f=%.6f\n", r.x, r.y, r.value);
 
         printf("\n");
     }
